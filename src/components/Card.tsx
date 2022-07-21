@@ -76,6 +76,9 @@ const TextGroup = styled.div<{ type: string }>`
   justify-content: space-between;
   box-sizing: border-box;
   padding: ${props => props.type === "row" ? "67px 56px 20px 30px" : "33px 21px 23px 26px"};
+  ${mobile} {
+    padding: 19px 15px;
+  }
   gap: 20px;
 `
 
