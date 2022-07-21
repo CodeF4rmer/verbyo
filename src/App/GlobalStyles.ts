@@ -15,15 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
   //font-size
   --header-font: 16px;
-
-  --sp-1: 1px;
-  --sp-2: 2px;
-  --sp-4: 4px;
-  --sp-8: 8px;
-  --sp-12: 12px;
-  --sp-16: 16px;
-  --sp-24: 24px;
-  --sp-32: 32px;
+  --header-mobile-font: 22px;
 
   body {
     padding: 0;
@@ -54,7 +46,6 @@ const GlobalStyles = createGlobalStyle`
   }
   
 }
-
 `;
 
 export default GlobalStyles;

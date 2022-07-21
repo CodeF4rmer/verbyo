@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Logo from 'components/Logo';
 import Button from 'components/Button';
-import Card from 'components/Card';
+import { RowCard, CoulmnCard } from 'components/Card';
+import { desktop, mobile } from 'utils';
 
 const Blog: React.FC = () => {
   const navigate = useNavigate();
@@ -25,16 +26,16 @@ const Blog: React.FC = () => {
       </Header>
       <Content>
         <Section>
-          <Card width="100%" />
+          <RowCard />
         </Section>
         <Section>
-          <Card width="50%" />
-          <Card width="50%" />
+          <CoulmnCard />
+          <CoulmnCard />
         </Section>
         <Section>
-          <Card width="33.33%" />
-          <Card width="33.33%" />
-          <Card width="33.33%" />
+          <CoulmnCard />
+          <CoulmnCard />
+          <CoulmnCard />
         </Section>
       </Content>
     </Container>
@@ -46,6 +47,9 @@ const Container = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 1080px;
+  ${desktop}, ${mobile} {
+    width: 100%;
+  }
   padding: 0 10px;
   gap: 47px;
 `;
@@ -78,6 +82,9 @@ const Content = styled.div`
 const Section = styled.div`
   display: flex;
   flex-direction: row;
+  ${mobile} {
+    flex-direction: column;
+  }
   align-items: center;
   box-sizing: border-box;
   gap: 20px;

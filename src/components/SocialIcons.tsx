@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { FacebookUrl, InstagramUrl, TelegramUrl } from 'utils';
+import { mobile } from 'utils';
 
-const SocialIcons: React.FC<any> = () => {
-
+const SocialIcons: React.FC<any> = (props) => {
+  const isHiden = props.isHeader ? true : false;
   return (
-    <Container>
+    <Container isHeader={isHiden} >
       <a
         href={FacebookUrl}
         target="_blank"
@@ -41,10 +42,13 @@ const SocialIcons: React.FC<any> = () => {
     </Container>
   )
 }
-const Container = styled.div`
+const Container = styled.div<{ isHeader: boolean }>`
   display: flex;
   align-items: center;
   gap: 15px;
+  ${mobile} {
+    display: ${props => props.isHeader ? "none" : "flex"};
+  }
 `;
 
 const Icon = styled.img<{ width: string; height: string }>`

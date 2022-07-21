@@ -1,5 +1,6 @@
 import Button from 'components/Button';
 import styled from 'styled-components';
+import { mobile } from 'utils';
 
 const Subscribe: React.FC = () => {
   return (
@@ -50,19 +51,28 @@ const Text = styled.span`
 `
 const Email = styled.span`
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
+  ${mobile} {
+    flex-direction: column;
+  }
   gap: 50px;
 `
 
 const Input = styled.input`
   width: 300px;
-  border: 0;
+  border: none;
   border-bottom: 1px solid var(--shade-2);
   color: var(--shade-2);
   font-size: 16px;
   font-family: GraphikRegular;
   box-sizing: border-box;
-  padding: 0 0 0 10px;
+  padding: 15px 5px;
+  outline: none;
+  ${mobile} {
+    text-align: center;
+  }
 `
 
 export default Subscribe;

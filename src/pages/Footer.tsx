@@ -1,5 +1,6 @@
 import SocialIcons from 'components/SocialIcons';
 import styled from 'styled-components';
+import { mobile } from 'utils';
 
 const Footer: React.FC = () => {
   return (
@@ -30,6 +31,10 @@ const Content = styled.div`
   width: 1080px;
   height: 24px;
   padding: 0 10px;
+  ${mobile} {
+    flex-direction: column;
+    height: 60px;
+  }
 `
 
 const Text = styled.p`

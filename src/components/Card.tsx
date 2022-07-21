@@ -1,26 +1,20 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const Card: React.FC<any> = (props) => {
+import { desktop, mobile } from 'utils';
+
+export const RowCard: React.FC<any> = (props) => {
   const navigate = useNavigate();
-  const imageWidth = props.width === "100%" ?
-    685 : props.width === "50%" ?
-      520 : 340;
-  const imageHeight = props.width === "100%" ? "350px" : "200px";
   return (
     <Container
       onClick={() => navigate("/News/:id=1")}
-      width={props.width}
+      type="row"
     >
       <Img
         src="/img/1280-720.png"
-        width={imageWidth + "px"}
-        height={imageHeight + "px"}
-        alt=""
+        type="row"
       />
-      <TextGroup
-        width={props.width}
-      >
+      <TextGroup type="row" >
         <div>
           <Title>H2 Title of the post</Title>
           <Content>Dear Customers, we just wanted to let you know that we have been keeping a close eye on the situation in Ukraine...</Content>
@@ -31,24 +25,58 @@ const Card: React.FC<any> = (props) => {
   )
 }
 
-const Container = styled.div<{ width: string }>`
+export const CoulmnCard: React.FC<any> = (props) => {
+  const navigate = useNavigate();
+  return (
+    <Container
+      onClick={() => navigate("/News/:id=1")}
+      type="column"
+    >
+      <Img
+        src="/img/1280-720.png"
+        type="column"
+      />
+      <TextGroup type="column">
+        <div>
+          <Title>H2 Title of the post</Title>
+          <Content>Dear Customers, we just wanted to let you know that we have been keeping a close eye on the situation in Ukraine...</Content>
+        </div>
+        <Date>22 OCTOBER 2022</Date>
+      </TextGroup>
+    </Container>
+  )
+}
+
+const Container = styled.div<{ type: string }>`
   cursor: pointer;
   display: flex;
-  flex-direction: ${props => props.width === "100%" ? "row" : "column"};
+  flex-direction: ${props => props.type === "row" ? "row" : "column"};
   border-radius: 5px;
   box-shadow: 0 6px 22px var(--shadow);
-`
-const Img = styled.img<{ width: string }>`
-  border-radius: ${props => props.width === "685px" ? "5px 0 0 5px" : "5px 5px 0 0"};
+  ${mobile} {
+    flex-direction: column;
+  }
 `
 
-const TextGroup = styled.div<{ width: string }>`
+const Img = styled.img<{ type: string }>`
+  width: ${props => props.type === "row" ? "685px" : "100%"};
+  ${desktop} {
+    width: ${props => props.type === "row" ? "calc(685 / 1060 * 100% );" : "100%"};
+  }
+  ${mobile} {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  border-radius: ${props => props.type === "row" ? "5px 0 0 5px" : "5px 5px 0 0"};
+`
+
+const TextGroup = styled.div<{ type: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: ${props => props.width === "100%" ? "67px 56px 20px 30px" : "33px 21px 23px 26px"};
-  height: ${props => props.width === "100%" ? "350px" : "250px"}
+  padding: ${props => props.type === "row" ? "67px 56px 20px 30px" : "33px 21px 23px 26px"};
+  gap: 20px;
 `
 
 const Title = styled.h2`
@@ -85,5 +113,3 @@ const Date = styled.span`
   line-height: 16px;
   text-align: end;
 `
-
-export default Card;

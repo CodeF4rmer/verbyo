@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { desktop, mobile } from 'utils';
 
 const text = ["Dear Customers,",
   "Paragraph We just wanted to let you know that we have been keeping a close eye on what's been happening in Ukraine borders. Over the last couple of days, with the USA, EU and UK having released sanctions in response to recent events. We have identified that the scope of these sanctions may impact the way we are able to continue offering services to some of our customers.",
@@ -17,18 +18,13 @@ const Article: React.FC<any> = () => {
         <Date>22 OCTORBER 2022</Date>
         <Title>Payouts. How do you get paid?</Title>
       </Header>
-      <img
-        src="/img/1280-720.png"
-        width="1040px"
-        height="536px"
-        alt=""
-      />
+      <Img src="/img/1280-720.png" />
       <Content>
         {text.map((_text: string, index: number) => {
           return (
             index === 6 ?
-              <Bold>{_text}</Bold> :
-              <Regular>{_text}</Regular>
+              <Bold key={index}>{_text}</Bold> :
+              <Regular key={index}>{_text}</Regular>
           )
         })}
       </Content>
@@ -43,6 +39,9 @@ const Container = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 1080px;
+  ${desktop}, ${mobile} {
+    width: 100%;
+  }
   padding: 0 10px;
   gap: 80px;
 `;
@@ -71,6 +70,9 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 720px;
+  ${mobile} {
+    width: 100%;
+  }
   justify-content: start; !important
   align-items: center;
   box-sizing: border-box;
@@ -92,6 +94,13 @@ const Bold = styled.h2`
   font-size: 26px;
   font-family: serif;
   color: var(--shade-0);
+`
+
+const Img = styled.img`
+  width: 1040px;
+  ${desktop}, ${mobile} {
+    width: 100%;
+  }
 `
 
 export default Article;

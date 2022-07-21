@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Logo from 'components/Logo';
 import Button from 'components/Button';
-import Card from 'components/Card';
+import { RowCard } from 'components/Card';
+import { desktop, mobile } from 'utils';
 
 const Help: React.FC = () => {
   const navigate = useNavigate();
@@ -24,27 +25,24 @@ const Help: React.FC = () => {
         />
       </Header>
       <Content>
-        <Section>
-          <Card width="100%" />
-        </Section>
-        <Section>
-          <Card width="100%" />
-        </Section>
-        <Section>
-          <Card width="100%" />
-        </Section>
+        <RowCard />
+        <RowCard />
+        <RowCard />
       </Content>
     </Container>
   );
 
 }
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 1080px;
-  padding: 0 10px;
-  gap: 47px;
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+width: 1080px;
+${desktop}, ${mobile} {
+  width: 100%;
+}
+padding: 0 10px;
+gap: 47px;
 `;
 
 const Header = styled.div`
@@ -67,14 +65,6 @@ const HeaderText = styled.h1`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  gap: 20px;
-`
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: row;
   align-items: center;
   box-sizing: border-box;
   gap: 20px;
