@@ -3,8 +3,10 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import {
   Blog,
   News,
-  Subscribe
-
+  Help,
+  Features,
+  Subscribe,
+  Article
 } from 'pages';
 
 const routes: RouteObject[] = [
@@ -25,7 +27,17 @@ const routes: RouteObject[] = [
   },
   {
     path: "/News/:id",
-    element: <News />,
+    element: <Article />,
+    children: [],
+  },
+  {
+    path: "/Help",
+    element: <Help />,
+    children: [],
+  },
+  {
+    path: "/Features",
+    element: <Features />,
     children: [],
   },
   {

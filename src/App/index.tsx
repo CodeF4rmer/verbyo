@@ -23,6 +23,7 @@ const App: React.FC<any> = (props: any) => {
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 19px - 50.5px - 104px);

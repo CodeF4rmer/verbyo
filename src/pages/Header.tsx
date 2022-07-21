@@ -15,11 +15,14 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Menubar>
-          <Logo
-            width="94px"
-            height="47px"
-          />
+        <MenuBar>
+          <LogoBar>
+            <Logo
+              width="94px"
+              height="47px"
+            />
+            <Rec />
+          </LogoBar>
           <Menus>
             <Menu
               onClick={() => clickMenu("/")}
@@ -34,13 +37,19 @@ const Header: React.FC = () => {
               News
             </Menu>
             <Menu
-              onClick={() => clickMenu("/Subscribe")}
-              isActive={tab === "/Subscribe"}
+              onClick={() => clickMenu("/Help")}
+              isActive={tab === "/Help"}
             >
-              Subscribe
+              Help
+            </Menu>
+            <Menu
+              onClick={() => clickMenu("/Features")}
+              isActive={tab === "/Features"}
+            >
+              Features
             </Menu>
           </Menus>
-        </Menubar>
+        </MenuBar>
         <SocialIcons />
       </Content>
 
@@ -65,11 +74,24 @@ const Content = styled.div`
   height: 50.5px;
   padding: 0 10px;
 `
-const Menubar = styled.div`
+
+const LogoBar = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const Rec = styled.div`
+  width: 1px;
+  height: 25px;
+  background-color: var(--header-color);
+`
+
+const MenuBar = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
 `
+
 const Menus = styled.div`
   display: flex;
   align-items: center;

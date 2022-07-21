@@ -5,7 +5,7 @@ import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Card from 'components/Card';
 
-const News: React.FC = () => {
+const Features: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -80,4 +80,4 @@ const Section = styled.div`
   gap: 20px;
 `
 
-export default News;
+export default Features;

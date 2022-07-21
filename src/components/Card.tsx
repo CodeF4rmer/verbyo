@@ -1,12 +1,17 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Card: React.FC<any> = (props) => {
+  const navigate = useNavigate();
   const imageWidth = props.width === "100%" ?
     685 : props.width === "50%" ?
       520 : 340;
   const imageHeight = props.width === "100%" ? "350px" : "200px";
   return (
-    <Container width={props.width} >
+    <Container
+      onClick={() => navigate("/News/:id=1")}
+      width={props.width}
+    >
       <Img
         src="/img/1280-720.png"
         width={imageWidth + "px"}
