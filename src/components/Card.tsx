@@ -56,6 +56,10 @@ const Container = styled.div<{ type: string }>`
   ${mobile} {
     flex-direction: column;
   }
+  :hover {
+    transform: scale(1.05);
+    transition: .2s;
+  }
 `
 
 const Img = styled.img<{ type: string }>`
