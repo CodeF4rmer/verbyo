@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Container>
+    <Container isFixed={showMobileMenu} >
       <Content>
         <MenuBar>
           <LogoBar>
@@ -80,13 +80,20 @@ const Header: React.FC = () => {
   );
 
 }
-const Container = styled.div`
+const Container = styled.div<{ isFixed: boolean }>`
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   padding: 19px 0 0 0;
+  background-color: var(--shade-4);
+  ${mobile} {
+    position: ${props => props.isFixed ? "fixed" : "static"};
+    z-index: 1;
+    top: 0;
+  }
 `
 
 const Content = styled.div`

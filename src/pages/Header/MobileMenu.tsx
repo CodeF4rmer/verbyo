@@ -55,8 +55,15 @@ const MobileMenu: React.FC<any> = (props: any) => {
 
 }
 const Container = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 69.5px;
+  bottom: 0;
   display: flex;
-  margin: 69.5px 0 0 0;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 60px;
   background-color: var(--shade-4);
 `
 
