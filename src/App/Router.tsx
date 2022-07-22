@@ -5,7 +5,6 @@ import {
   News,
   Help,
   Features,
-  Subscribe,
   Article
 } from 'pages';
 
@@ -39,13 +38,7 @@ const routes: RouteObject[] = [
     path: "/Features",
     element: <Features />,
     children: [],
-  },
-  {
-    path: "/Subscribe",
-    element: <Subscribe />,
-    children: [],
-  },
-
+  }
 ];
 
 

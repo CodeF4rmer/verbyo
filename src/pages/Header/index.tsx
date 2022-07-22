@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Logo from 'components/Logo';
 import SocialIcons from 'components/SocialIcons';
 import { desktop, mobile } from 'utils';
-import MobileMenu from './Modal/MobileMenu';
+import MobileMenu from './MobileMenu';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
