@@ -32,28 +32,24 @@ const Header: React.FC = () => {
             <Menu
               onClick={() => clickMenu("/")}
               isActive={tab === "/"}
-              isHelp={false}
             >
               Blog
             </Menu>
             <Menu
               onClick={() => clickMenu("/News")}
               isActive={tab === "/News"}
-              isHelp={false}
             >
               News
             </Menu>
             <Menu
               onClick={() => clickMenu("/Help")}
               isActive={tab === "/Help"}
-              isHelp={true}
             >
               Help
             </Menu>
             <Menu
               onClick={() => clickMenu("/Features")}
               isActive={tab === "/Features"}
-              isHelp={false}
             >
               Features
             </Menu>
@@ -74,6 +70,8 @@ const Header: React.FC = () => {
       {showMobileMenu &&
         <MobileMenu
           setShowMobileMenu={setShowMobileMenu}
+          tab={tab}
+          setTab={setTab}
         />
       }
     </Container>
@@ -132,12 +130,12 @@ const Menus = styled.div`
   gap: 32px;
 `
 
-const Menu = styled.div<{ isActive: boolean; isHelp: boolean }>`
+const Menu = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   color: ${props => props.isActive ? "var(--shade-0)" : "var(--header-color)"};
   font-size: var(--header-font);
   ${mobile} {
-    display: ${props => props.isHelp ? "block" : "none"};
+    display: ${props => props.isActive ? "block" : "none"};
   }
 `
 
