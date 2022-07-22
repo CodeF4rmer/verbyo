@@ -1,11 +1,19 @@
 import ReactModal from 'react-modal';
 import styled, { createGlobalStyle } from 'styled-components';
+import { useEffect, useState } from 'react';
 
 import Button from 'components/Button';
 import { mobile } from 'utils';
 
 const Modal: React.FC<any> = (props) => {
-  const { showModal } = props;
+  const { showModal, setShowModal } = props;
+  const [email, setEmail] = useState("")
+  const [warning, setWarning] = useState(true);
+
+  useEffect(() => {
+    setWarning(!/\S+@\S+\.\S+/.test(email));
+  }, [email]);
+
   return (
     <>
       <ModalStyles />
@@ -16,19 +24,29 @@ const Modal: React.FC<any> = (props) => {
         ariaHideApp={false}
       >
         <Container>
-          <Header>
+          <Section>
             <Title>Subscribe to our newsletter !</Title>
             <Text>Stay up to date! Get all the news and updates directly from us. </Text>
-          </Header>
-          <Email>
-            <Input
-              placeholder="Enter your email here"
-            />
-            <Button
-              onClick={() => alert("Success !")}
-              text="Subscribe"
-            />
-          </Email>
+          </Section>
+          <Section>
+            {warning &&
+              <Warning>Please enter the correct Email format</Warning>
+            }
+            <Email>
+              <Input
+                placeholder="Enter your email here"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button
+                onClick={() => {
+                  alert("Success !");
+                  setShowModal(false);
+                }
+                }
+                text="Subscribe"
+              />
+            </Email>
+          </Section>
         </Container>
       </ReactModal>
     </>
@@ -44,7 +62,7 @@ const Container = styled.div`
   gap: 80px;
 `
 
-const Header = styled.div`
+const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +80,11 @@ const Text = styled.span`
   font-size: 16px;
   font-family: GraphikRegular;
 `
-const Email = styled.span`
+
+const Warning = styled(Text)`
+  color: var(--warning-color);
+`
+const Email = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   --header-color: #777;
   --hr-color: rgba(153,155,156,0.5);
   --shadow: #d1d1d4;
+  --warning-color: red;
 
   //font-size
   --header-font: 16px;

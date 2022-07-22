@@ -20,7 +20,10 @@ const Subscribe: React.FC = () => {
         onClick={() => setShowModal(true)}
         text="Subscribe"
       />
-      <Modal showModal={showModal} />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
       {showModal && <Close
         src="/img/close.png"
         onClick={() => setShowModal(false)}

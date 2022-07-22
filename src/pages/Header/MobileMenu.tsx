@@ -21,28 +21,24 @@ const MobileMenu: React.FC<any> = (props: any) => {
           <Menu
             onClick={() => clickMenu("/")}
             isActive={tab === "/"}
-            isHelp={false}
           >
             Blog
           </Menu>
           <Menu
             onClick={() => clickMenu("/News")}
             isActive={tab === "/News"}
-            isHelp={false}
           >
             News
           </Menu>
           <Menu
             onClick={() => clickMenu("/Help")}
             isActive={tab === "/Help"}
-            isHelp={true}
           >
             Help
           </Menu>
           <Menu
             onClick={() => clickMenu("/Features")}
             isActive={tab === "/Features"}
-            isHelp={false}
           >
             Features
           </Menu>
@@ -89,7 +85,7 @@ const MenuBar = styled.div`
   gap: 25px;
 `
 
-const Menu = styled.div<{ isActive: boolean; isHelp: boolean }>`
+const Menu = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   color: ${props => props.isActive ? "var(--shade-0)" : "var(--header-color)"};
   font-size: var(--header-mobile-font);
