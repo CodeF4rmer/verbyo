@@ -112,9 +112,6 @@ const Section = styled.div`
   justify-content: center;
   align-items: center;
   height: 614px;
-  ${mobile} {
-    height: 504px;
-  }
 `
 const NextArticle = styled.div`
   width: 520px;

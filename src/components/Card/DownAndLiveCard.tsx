@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-import { desktop, mobile } from 'utils';
+import { mobile } from 'utils';
 import Button from 'components/Button';
 
 export const DownloadCard: React.FC = () => {
@@ -35,8 +35,9 @@ export const LiveCard: React.FC = () => {
 export const DownAndLiveCard: React.FC<any> = (props: any) => {
   return (
     <Container isArticlePage={props.isArticlePage}>
-      {props.isArticlePage && <Line />}
+      {props.isArticlePage && <Line show={props.isArticlePage} />}
       <DownloadCard />
+      {!props.isArticlePage && <Line show={props.isArticlePage} />}
       <LiveCard />
     </Container>
   )
@@ -97,11 +98,13 @@ const Container = styled.div<{ isArticlePage: boolean }>`
     flex-direction: column;
   }
 `
-const Line = styled.div`
+const Line = styled.div<{ show: boolean }>`
+  display: ${props => props.show ? "block" : "none"};
   width: 748px;
   height: 0.5px;
   background-color: var(--line);
-  ${desktop}, ${mobile} {
+  ${mobile} {
+    display: block;
     width: 80%;
   }
 `
