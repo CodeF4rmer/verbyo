@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import SocialIcons from 'components/SocialIcons';
+import { LiveCard } from 'components/Card';
 
 const MobileMenu: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
@@ -43,7 +44,8 @@ const MobileMenu: React.FC<any> = (props: any) => {
             Features
           </Menu>
         </MenuBar>
-        <Rec />
+        <Line />
+        <LiveCard />
         <SocialIcons />
       </Content>
     </Container>
@@ -59,7 +61,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  padding: 60px;
+  padding: 60px 0;
   background-color: var(--shade-4);
 `
 
@@ -68,13 +70,13 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  gap: 100px;
+  gap: 50px;
 `
 
-const Rec = styled.div`
-  width: 300px;
+const Line = styled.div`
+  width: 80%;
   height: 1px;
-  background-color: var(--header-color);
+  background-color: var(--line);
 `
 
 const MenuBar = styled.div`
@@ -88,7 +90,7 @@ const MenuBar = styled.div`
 const Menu = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   color: ${props => props.isActive ? "var(--shade-0)" : "var(--header-color)"};
-  font-size: var(--header-mobile-font);
+  font-size: var(--header-mobile-drop-font);
 `
 
 export default MobileMenu;

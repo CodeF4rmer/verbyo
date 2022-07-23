@@ -17,17 +17,15 @@ export const RowCard: React.FC<any> = (props: any) => {
         type="row"
       />
       <TextGroup type="row" >
-        <div>
-          <Title>{data.title}</Title>
-          <Content>{data.meta}</Content>
-        </div>
+        <Title>{data.title}</Title>
+        <Content>{data.meta}</Content>
         <Date>{data.date}</Date>
       </TextGroup>
     </Container>
   )
 }
 
-export const CoulmnCard: React.FC<any> = (props) => {
+export const ColumnCard: React.FC<any> = (props) => {
   const navigate = useNavigate();
   const { data } = props;
 
@@ -41,10 +39,8 @@ export const CoulmnCard: React.FC<any> = (props) => {
         type="column"
       />
       <TextGroup type="column">
-        <div>
-          <Title>{data.title}</Title>
-          <Content>{data.meta}</Content>
-        </div>
+        <Title>{data.title}</Title>
+        <Content>{data.meta}</Content>
         <Date>{data.date}</Date>
       </TextGroup>
     </Container>
@@ -94,23 +90,26 @@ const Title = styled.h2`
   color: var(--shade-0);
   font-family: GraphikBold;
   font-size: 26px;
-  line-height: 35px;
+  ${mobile} {
+    font-size: 18px;
+  }
   padding: 0;
   margin: 0;
-  margin-bottom: 29px;
 `
 
 const Content = styled.p`
-  color: var(--shade-2);
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  display: -webkit-box;
-  font-family: serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--shade-2);
+  font-family: serif;
+  font-size: 16px;
+  height: 100px;
+  ${mobile} {
+    font-size: 14px;
+    height: 100px;
+  }
+  font-weight: 400;
+  line-height: 24px;
   padding: 0;
   margin: 0;
 `
@@ -123,4 +122,8 @@ const Date = styled.span`
   font-size: 12px;
   line-height: 16px;
   text-align: end;
+  margin-top: 20px;
+  ${mobile} {
+    margin-top: 10px;
+  }
 `

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <Text>
           2022 Copyright to Sugar LTD
         </Text>
-        <SocialIcons />
+        <SocialIcons isHiden={true} />
       </Content>
     </Container>
   );
@@ -20,21 +20,20 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 50px 0 30px 0;
+  padding: 30px 0;
 `
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile} {
+    justify-content: center;
+  }
   align-items: center;
   box-sizing: border-box;
   width: 1080px;
   height: 24px;
   padding: 0 10px;
-  ${mobile} {
-    flex-direction: column;
-    height: 60px;
-  }
 `
 
 const Text = styled.p`
@@ -42,6 +41,10 @@ const Text = styled.p`
   font-family: serif;
   font-weight: 400;
   line-height: 24px;
+  font-size: 16px;
+  ${mobile} {
+    font-size: 12px;
+  }
 `
 
 export default Footer;

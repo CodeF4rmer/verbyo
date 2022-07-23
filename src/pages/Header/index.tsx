@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import Logo from 'components/Logo';
 import SocialIcons from 'components/SocialIcons';
 import { desktop, mobile } from 'utils';
 import MobileMenu from './MobileMenu';
@@ -23,10 +22,10 @@ const Header: React.FC = () => {
         <MenuBar>
           <LogoBar>
             <Logo
-              width="94px"
-              height="47px"
+              src="/img/logo.png"
+              onClick={() => navigate("/")}
             />
-            <Rec />
+            <Line />
           </LogoBar>
           <Menus>
             <Menu
@@ -59,7 +58,7 @@ const Header: React.FC = () => {
             </Menu>
           </Menus>
         </MenuBar>
-        <SocialIcons isHeader={true} />
+        <SocialIcons isHiden={true} />
         <Drop
           src="/img/drop.png"
           onClick={() => setShowMobileMenu(true)}
@@ -95,7 +94,15 @@ const Container = styled.div<{ isFixed: boolean }>`
     top: 0;
   }
 `
-
+const Logo = styled.img`
+  cursor: pointer;
+  width: 94px;
+  height: 47px;
+  ${mobile} {
+    width: 74px;
+    height: 37px;
+  }
+`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
@@ -114,7 +121,7 @@ const LogoBar = styled.div`
   align-items: center;
 `
 
-const Rec = styled.div`
+const Line = styled.div`
   width: 1px;
   height: 25px;
   background-color: var(--header-color);
@@ -138,6 +145,7 @@ const Menu = styled.div<{ isActive: boolean; isHelp: boolean }>`
   font-size: var(--header-font);
   ${mobile} {
     display: ${props => props.isHelp ? "block" : "none"};
+    font-size: var(--header-mobile-font);
   }
 `
 
@@ -146,8 +154,8 @@ const Drop = styled.img<{ show: boolean }>`
   display: none;
   ${mobile} {
     display: ${props => props.show ? "none" : "block"};
-    width: 30px;
-    height: 21px;
+    width: 27px;
+    height: 18px;
   }
 `
 const Close = styled.img<{ show: boolean }>`

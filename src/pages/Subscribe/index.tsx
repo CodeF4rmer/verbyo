@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Modal from './Modal'
+import { mobile } from 'utils';
 
 const Subscribe: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <Container>
-      <Logo
-        width="264px"
-        height="132px"
-      />
+      <Logo src="/img/logo.png" />
       <HeaderText>
         Our place for news, updates and help.
       </HeaderText>
@@ -39,8 +36,19 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   height: 417px;
+  ${mobile} {
+    height: 300px;
+  }
   padding: 62px 0 0 0;
-  border-bottom: 2px solid var(--hr-color);
+  border-bottom: 0.5px solid var(--line);
+`
+const Logo = styled.img`
+  width: 264px;
+  height: 132px;
+  ${mobile} {
+    width: 166px;
+    height: 83px;
+  }
 `
 
 const HeaderText = styled.h1`
@@ -48,6 +56,11 @@ const HeaderText = styled.h1`
   height: 20px;
   font-size: 18px;
   margin-bottom: 51px;
+  text-align: center;
+  ${mobile} {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
 `
 const Close = styled.img`
   position: fixed;

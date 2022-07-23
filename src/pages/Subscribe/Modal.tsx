@@ -29,7 +29,7 @@ const Modal: React.FC<any> = (props) => {
             <Text>Stay up to date! Get all the news and updates directly from us. </Text>
           </Section>
           <Section>
-            {warning &&
+            {email !== "" && warning &&
               <Warning>Please enter the correct Email format</Warning>
             }
             <Email>
@@ -60,6 +60,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 80px;
+  text-align: center;
 `
 
 const Section = styled.div`

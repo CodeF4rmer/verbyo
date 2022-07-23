@@ -1,24 +1,27 @@
 import styled from 'styled-components';
 
-import { RowCard } from 'components/Card';
+import { RowCard, DownAndLiveCard } from 'components/Card';
 import { desktop, mobile } from 'utils';
 import Subscribe from './Subscribe';
 import articleData from 'utils/articleData.json';
 
 const Features: React.FC = () => {
   return (
-    <Container>
-      <Subscribe />
-      <Content>
-        {articleData.map((data: any, index: number) => {
-          return <RowCard
-            data={data}
-            key={index}
-          />
-        }
-        )}
-      </Content>
-    </Container>
+    <>
+      <Container>
+        <Subscribe />
+        <Content>
+          {articleData.map((data: any, index: number) => {
+            return <RowCard
+              data={data}
+              key={index}
+            />
+          }
+          )}
+        </Content>
+      </Container>
+      <DownAndLiveCard isArticlePage={false} />
+    </>
   );
 
 }
@@ -28,7 +31,7 @@ flex-direction: column;
 box-sizing: border-box;
 width: 1080px;
 ${desktop}, ${mobile} {
-  width: 100%;
+  width: 95%;
 }
 padding: 0 10px;
 gap: 47px;

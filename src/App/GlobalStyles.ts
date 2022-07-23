@@ -10,12 +10,13 @@ const GlobalStyles = createGlobalStyle`
   --shade-4: #fff;
   --button-color: #4495ff;
   --header-color: #777;
-  --hr-color: rgba(153,155,156,0.5);
   --shadow: #d1d1d4;
   --warning-color: red;
+  --line: rgba(153, 155, 156, 1);
 
   --header-font: 16px;
-  --header-mobile-font: 22px;
+  --header-mobile-font: 14px;
+  --header-mobile-drop-font: 20px;
 
   body {
     padding: 0;

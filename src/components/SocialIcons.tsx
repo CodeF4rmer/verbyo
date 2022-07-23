@@ -3,7 +3,7 @@ import { FacebookUrl, InstagramUrl, TelegramUrl } from 'utils';
 import { mobile } from 'utils';
 
 const SocialIcons: React.FC<any> = (props) => {
-  const isHiden = props.isHeader ? true : false;
+  const isHiden = props.isHiden ? true : false;
   return (
     <Container isHeader={isHiden} >
       <a
