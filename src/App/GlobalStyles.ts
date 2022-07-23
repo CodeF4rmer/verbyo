@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 : root {
-  //color
+
   --shade-0: #000;
   --shade-1: #4e4c4c;
   --shade-2: #575858;
@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
   --shadow: #d1d1d4;
   --warning-color: red;
 
-  //font-size
   --header-font: 16px;
   --header-mobile-font: 22px;
 
