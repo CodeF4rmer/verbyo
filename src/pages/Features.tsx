@@ -3,15 +3,20 @@ import styled from 'styled-components';
 import { RowCard } from 'components/Card';
 import { desktop, mobile } from 'utils';
 import Subscribe from './Subscribe';
+import articleData from 'utils/articleData.json';
 
 const Features: React.FC = () => {
   return (
     <Container>
       <Subscribe />
       <Content>
-        <RowCard />
-        <RowCard />
-        <RowCard />
+        {articleData.map((data: any, index: number) => {
+          return <RowCard
+            data={data}
+            key={index}
+          />
+        }
+        )}
       </Content>
     </Container>
   );

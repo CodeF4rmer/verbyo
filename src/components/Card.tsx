@@ -3,23 +3,25 @@ import { useNavigate } from 'react-router-dom';
 
 import { desktop, mobile } from 'utils';
 
-export const RowCard: React.FC<any> = (props) => {
+export const RowCard: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
+  const { data } = props;
+
   return (
     <Container
-      onClick={() => navigate("/News/:id=1")}
+      onClick={() => navigate("/News/" + data.title.replace(/\s/g, '-'))}
       type="row"
     >
       <Img
-        src="/img/1280-720.png"
+        src={data.image}
         type="row"
       />
       <TextGroup type="row" >
         <div>
-          <Title>H2 Title of the post</Title>
-          <Content>Dear Customers, we just wanted to let you know that we have been keeping a close eye on the situation in Ukraine...</Content>
+          <Title>{data.title}</Title>
+          <Content>{data.meta}</Content>
         </div>
-        <Date>22 OCTOBER 2022</Date>
+        <Date>{data.date}</Date>
       </TextGroup>
     </Container>
   )
@@ -27,21 +29,23 @@ export const RowCard: React.FC<any> = (props) => {
 
 export const CoulmnCard: React.FC<any> = (props) => {
   const navigate = useNavigate();
+  const { data } = props;
+
   return (
     <Container
-      onClick={() => navigate("/News/:id=1")}
+      onClick={() => navigate("/News/" + data.title.replace(/\s/g, '-'))}
       type="column"
     >
       <Img
-        src="/img/1280-720.png"
+        src={data.image}
         type="column"
       />
       <TextGroup type="column">
         <div>
-          <Title>H2 Title of the post</Title>
-          <Content>Dear Customers, we just wanted to let you know that we have been keeping a close eye on the situation in Ukraine...</Content>
+          <Title>{data.title}</Title>
+          <Content>{data.meta}</Content>
         </div>
-        <Date>22 OCTOBER 2022</Date>
+        <Date>{data.date}</Date>
       </TextGroup>
     </Container>
   )

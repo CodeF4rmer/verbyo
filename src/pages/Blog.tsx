@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { RowCard, CoulmnCard } from 'components/Card';
 import { desktop, mobile } from 'utils';
 import Subscribe from './Subscribe';
+import articleData from 'utils/articleData.json';
 
 const Blog: React.FC = () => {
   return (
@@ -10,16 +11,16 @@ const Blog: React.FC = () => {
       <Subscribe />
       <Content>
         <Section>
-          <RowCard />
+          <RowCard data={articleData[0]} />
         </Section>
         <Section>
-          <CoulmnCard />
-          <CoulmnCard />
+          <CoulmnCard data={articleData[1]} />
+          <CoulmnCard data={articleData[2]} />
         </Section>
         <Section>
-          <CoulmnCard />
-          <CoulmnCard />
-          <CoulmnCard />
+          <CoulmnCard data={articleData[0]} />
+          <CoulmnCard data={articleData[1]} />
+          <CoulmnCard data={articleData[2]} />
         </Section>
       </Content>
     </Container>
