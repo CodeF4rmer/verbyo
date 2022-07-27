@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { desktop, mobile } from 'utils';
 import { useParams } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import articleData from 'utils/articleData.json'
 import { useEffect, useState } from 'react';
@@ -23,10 +23,12 @@ const Article: React.FC<any> = () => {
 
   return (
     <Container>
-      <Helmet>
-        <meta property="og:description" content={data.meta} />
-        <meta property="og:image" content={data.ogImage} />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta property="og:description" content={data.meta} />
+          <meta property="og:image" content={data.ogImage} />
+        </Helmet>
+      </HelmetProvider>
       <Content>
         <Header>
           <Date>{data.date}</Date>
