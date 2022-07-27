@@ -3,9 +3,10 @@ import { desktop, mobile } from 'utils';
 import { useParams } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import articleData from 'utils/articleData.json'
+import articleData from 'utils/articleData'
 import { useEffect, useState } from 'react';
 import { ColumnCard, DownAndLiveCard } from 'components/Card';
+
 
 const Article: React.FC<any> = () => {
   const [data, setData] = useState(articleData[0]);
@@ -47,8 +48,8 @@ const Article: React.FC<any> = () => {
       </FooterCards>
     </Container>
   );
-
 }
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
