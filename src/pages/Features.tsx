@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { RowCard, DownAndLiveCard } from 'components/Card';
 import { desktop, mobile } from 'utils';
 import Subscribe from './Subscribe';
-import articleData from 'utils/articleData.json';
+import articleData from 'utils/articleData';
 
 const Features: React.FC = () => {
   return (

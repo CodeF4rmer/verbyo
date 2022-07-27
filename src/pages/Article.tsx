@@ -3,9 +3,10 @@ import { desktop, mobile } from 'utils';
 import { useParams } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
-import articleData from 'utils/articleData.json'
+import articleData from 'utils/articleData'
 import { useEffect, useState } from 'react';
 import { ColumnCard, DownAndLiveCard } from 'components/Card';
+
 
 const Article: React.FC<any> = () => {
   const [data, setData] = useState(articleData[0]);
@@ -33,7 +34,7 @@ const Article: React.FC<any> = () => {
           <Title>{data.title}</Title>
           <Img src={data.image} />
         </Header>
-        <div dangerouslySetInnerHTML={{ __html: require(data.content) }} />
+        <div dangerouslySetInnerHTML={{ __html: data.content }} />
       </Content>
       <FooterCards>
         <DownAndLiveCard isArticlePage={true} />
@@ -45,8 +46,8 @@ const Article: React.FC<any> = () => {
       </FooterCards>
     </Container>
   );
-
 }
+
 const Container = styled.div`
   display: flex;
   justify-content: center;

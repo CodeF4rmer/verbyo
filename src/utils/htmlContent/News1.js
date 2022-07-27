@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export default `<!DOCTYPE html>
 <html>
 
 <head>
@@ -85,3 +85,4 @@
 </div>
 
 </html>
+`;
