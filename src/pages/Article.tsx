@@ -33,7 +33,7 @@ const Article: React.FC<any> = () => {
           <Title>{data.title}</Title>
           <Img src={data.image} />
         </Header>
-        <div dangerouslySetInnerHTML={{ __html: data.content }} />
+        <div dangerouslySetInnerHTML={{ __html: require(data.content) }} />
       </Content>
       <FooterCards>
         <DownAndLiveCard isArticlePage={true} />
