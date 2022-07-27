@@ -1,4 +1,5 @@
-export default `<!DOCTYPE html>
+export default `
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -57,8 +58,17 @@ export default `<!DOCTYPE html>
     }
   </style>
 </head>
+
 <div id='body'>
   <div id='content'>
+
+  <ol>
+    <li>text 1</li>
+    <li>text 2</li>
+    <li>text 3</li>
+  </ol>
+  <p>&nbsp;</p>
+
     <p>Dear Customers,</p>
     <p>Paragraph We just wanted to let you know that we have been keeping a close eye on what's been happening in
       Ukraine borders. Over the last couple of days, with the USA, EU and UK having released sanctions in response
