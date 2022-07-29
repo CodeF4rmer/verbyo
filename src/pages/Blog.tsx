@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { RowCard, ColumnCard, DownAndLiveCard } from 'components/Card';
-import { desktop, mobile } from 'utils';
+import { desktop, mobile, ROUTES } from 'utils';
 import Subscribe from './Subscribe';
-import articleData from 'utils/articleData';
+import { blogData } from 'utils/articleData';
 
 const Blog: React.FC = () => {
   return (
@@ -12,16 +12,28 @@ const Blog: React.FC = () => {
         <Subscribe />
         <Content>
           <Section>
-            <RowCard data={articleData[0]} />
+            <RowCard
+              router={ROUTES.BLOG}
+              data={blogData[0]} />
           </Section>
           <Section>
-            <ColumnCard data={articleData[1]} />
-            <ColumnCard data={articleData[2]} />
+            <ColumnCard
+              router={ROUTES.BLOG}
+              data={blogData[1]} />
+            <ColumnCard
+              router={ROUTES.BLOG}
+              data={blogData[2]} />
           </Section>
           <Section>
-            <ColumnCard data={articleData[0]} />
-            <ColumnCard data={articleData[1]} />
-            <ColumnCard data={articleData[2]} />
+            <ColumnCard
+              router={ROUTES.BLOG}
+              data={blogData[3]} />
+            <ColumnCard
+              router={ROUTES.BLOG}
+              data={blogData[4]} />
+            <ColumnCard
+              router={ROUTES.BLOG}
+              data={blogData[5]} />
           </Section>
         </Content>
       </Container>

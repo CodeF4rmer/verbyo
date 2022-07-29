@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { RowCard, DownAndLiveCard } from 'components/Card';
-import { desktop, mobile } from 'utils';
+import { desktop, mobile, ROUTES } from 'utils';
 import Subscribe from './Subscribe';
-import articleData from 'utils/articleData';
+import { helpData } from 'utils/articleData';
 
 const Help: React.FC = () => {
   return (
@@ -11,8 +11,9 @@ const Help: React.FC = () => {
       <Container>
         <Subscribe />
         <Content>
-          {articleData.map((data: any, index: number) => {
+          {helpData.map((data: any, index: number) => {
             return <RowCard
+              router={ROUTES.HELP}
               data={data}
               key={index}
             />

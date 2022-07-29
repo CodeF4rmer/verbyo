@@ -1,26 +1,51 @@
 import styled from 'styled-components';
-import { desktop, mobile } from 'utils';
+import { desktop, mobile, ROUTES } from 'utils';
 import { useParams } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import articleData from 'utils/articleData'
+import { blogData, newsData, helpData, featuresData } from 'utils/articleData'
 import { useEffect, useState } from 'react';
 import { ColumnCard, DownAndLiveCard } from 'components/Card';
 
-
 const Article: React.FC<any> = () => {
-  const [data, setData] = useState(articleData[0]);
   const params = useParams();
+  const category = params.category;
+  const [articleData, setAticleData] = useState(blogData);
+
+  useEffect(() => {
+    switch (category) {
+      case ROUTES.BLOG: {
+        setAticleData(blogData);
+        break;
+      }
+      case ROUTES.NEWS: {
+        setAticleData(newsData);
+        break;
+      }
+      case ROUTES.HELP: {
+        setAticleData(helpData);
+        break;
+      }
+      case ROUTES.FEATURES: {
+        setAticleData(featuresData);
+        break;
+      }
+    }
+  }, [category])
+
+  const [data, setData] = useState(articleData[0]);
+  const [nextCard, setNextCard] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    articleData.forEach((_data: any) => {
+    articleData.forEach((_data: any, index: number) => {
       if (_data.title.replace(/\s/g, '-') === params.id) {
         setData(_data);
+        setNextCard(index === articleData.length - 1 ? 0 : index + 1);
         return;
       }
     })
-  }, [params]);
+  }, [params, articleData]);
 
   return (
     <Container>
@@ -42,7 +67,9 @@ const Article: React.FC<any> = () => {
         <DownAndLiveCard isArticlePage={true} />
         <Section>
           <NextArticle>
-            <ColumnCard data={articleData[0]} />
+            <ColumnCard
+              router={category}
+              data={articleData[nextCard]} />
           </NextArticle>
         </Section>
       </FooterCards>

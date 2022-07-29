@@ -5,11 +5,11 @@ import { desktop, mobile } from 'utils';
 
 export const RowCard: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
-  const { data } = props;
+  const { router, data } = props;
 
   return (
     <Container
-      onClick={() => navigate("/News/" + data.title.replace(/\s/g, '-'))}
+      onClick={() => navigate("/" + router + "/" + data.title.replace(/\s/g, '-'))}
       type="row"
     >
       <Img
@@ -27,11 +27,11 @@ export const RowCard: React.FC<any> = (props: any) => {
 
 export const ColumnCard: React.FC<any> = (props) => {
   const navigate = useNavigate();
-  const { data } = props;
+  const { router, data } = props;
 
   return (
     <Container
-      onClick={() => navigate("/News/" + data.title.replace(/\s/g, '-'))}
+      onClick={() => navigate("/" + router + "/" + data.title.replace(/\s/g, '-'))}
       type="column"
     >
       <Img

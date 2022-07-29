@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { RowCard, DownAndLiveCard } from 'components/Card';
-import { desktop, mobile } from 'utils';
+import { desktop, mobile, ROUTES } from 'utils';
 import Subscribe from './Subscribe';
-import articleData from 'utils/articleData';
+import { newsData } from 'utils/articleData';
 
 const News: React.FC = () => {
   return (
@@ -11,8 +11,9 @@ const News: React.FC = () => {
       <Container>
         <Subscribe />
         <Content>
-          {articleData.map((data: any, index: number) => {
+          {newsData.map((data: any, index: number) => {
             return <RowCard
+              router={ROUTES.NEWS}
               data={data}
               key={index}
             />
